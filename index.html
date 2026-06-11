@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dungeon of Python Prototype</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <main class="app-shell">
+        <section class="hero-panel">
+            <div>
+                <p class="eyebrow">Playable Prototype</p>
+                <h1>Dungeon of Python</h1>
+                <p class="hero-copy">
+                    Clear dungeon waves, survive random events, collect loot, and defeat the Dragon King.
+                </p>
+            </div>
+            <div class="run-stats">
+                <div>
+                    <span>Wave</span>
+                    <strong id="waveNumber">1</strong>
+                </div>
+                <div>
+                    <span>Goal</span>
+                    <strong>Boss</strong>
+                </div>
+            </div>
+        </section>
+
+        <section id="setupScreen" class="setup-grid">
+            <article class="panel">
+                <h2>Create Your Hero</h2>
+                <label for="heroName">Hero name</label>
+                <input id="heroName" type="text" value="Aria" maxlength="18">
+
+                <div class="class-grid" aria-label="Choose a class">
+                    <button class="class-card selected" data-class="Warrior" type="button">
+                        <span>Warrior</span>
+                        <small>High health, strong defense, Power Slash</small>
+                    </button>
+                    <button class="class-card" data-class="Mage" type="button">
+                        <span>Mage</span>
+                        <small>Higher damage, better dodge, Arcane Pierce</small>
+                    </button>
+                </div>
+
+                <button id="startButton" class="primary-action" type="button">Start Dungeon Run</button>
+            </article>
+
+            <article class="panel guide-panel">
+                <h2>How It Plays</h2>
+                <ul>
+                    <li>Attack builds reliable damage.</li>
+                    <li>Special moves hit harder and use cooldowns.</li>
+                    <li>Defend reduces the next incoming attack.</li>
+                    <li>Potions and loot can appear between waves.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="gameScreen" class="game-grid hidden">
+            <article class="panel combat-panel">
+                <div class="combatants">
+                    <div class="fighter-card">
+                        <div class="fighter-heading">
+                            <span id="playerClass">Warrior</span>
+                            <strong id="playerName">Aria</strong>
+                        </div>
+                        <div class="health-row">
+                            <span>HP</span>
+                            <strong id="playerHpText">170 / 170</strong>
+                        </div>
+                        <div class="bar"><div id="playerHpBar" class="bar-fill player-fill"></div></div>
+                        <div id="playerStats" class="stat-list"></div>
+                    </div>
+
+                    <div class="versus">VS</div>
+
+                    <div class="fighter-card enemy-card">
+                        <div class="fighter-heading">
+                            <span id="enemyType">Enemy</span>
+                            <strong id="enemyName">Goblin</strong>
+                        </div>
+                        <div class="health-row">
+                            <span>HP</span>
+                            <strong id="enemyHpText">45 / 45</strong>
+                        </div>
+                        <div class="bar"><div id="enemyHpBar" class="bar-fill enemy-fill"></div></div>
+                        <div id="enemyStats" class="stat-list"></div>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button id="attackButton" type="button">Attack</button>
+                    <button id="specialButton" type="button">Special</button>
+                    <button id="defendButton" type="button">Defend</button>
+                    <button id="potionButton" type="button">Use Potion</button>
+                </div>
+            </article>
+
+            <aside class="panel side-panel">
+                <h2>Inventory</h2>
+                <div id="inventoryList" class="inventory-list"></div>
+                <h2>Run Log</h2>
+                <div id="log" class="log"></div>
+            </aside>
+        </section>
+
+        <section id="resultScreen" class="panel result-panel hidden">
+            <p class="eyebrow" id="resultEyebrow">Run Complete</p>
+            <h2 id="resultTitle">Victory</h2>
+            <p id="resultCopy"></p>
+            <button id="restartButton" class="primary-action" type="button">Play Again</button>
+        </section>
+    </main>
+
+    <script src="static/game.js"></script>
+</body>
+</html>
